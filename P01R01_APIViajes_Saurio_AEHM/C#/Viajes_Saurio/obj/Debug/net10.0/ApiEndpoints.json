@@ -1,0 +1,123 @@
+[
+  {
+    "ContainingType": "Viajes_Saurio.Controllers.ViajeApi",
+    "Method": "Get",
+    "RelativePath": "api/ViajeApi",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Viajes_Saurio.Controllers.ViajeApi",
+    "Method": "Post",
+    "RelativePath": "api/ViajeApi",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "tblDestino",
+        "Type": "Viajes_Saurio.Models.tblDestino",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Viajes_Saurio.Controllers.ViajeApi",
+    "Method": "Get",
+    "RelativePath": "api/ViajeApi/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Viajes_Saurio.Controllers.ViajeApi",
+    "Method": "Put",
+    "RelativePath": "api/ViajeApi/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "tblDestino",
+        "Type": "Viajes_Saurio.Models.tblDestino",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Viajes_Saurio.Controllers.ViajeApi",
+    "Method": "Patch",
+    "RelativePath": "api/ViajeApi/{id}",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "tblDestino",
+        "Type": "Viajes_Saurio.Models.tblDestino",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Viajes_Saurio.Controllers.ViajeApi",
+    "Method": "Delete",
+    "RelativePath": "api/ViajeApi/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Viajes_Saurio.Controllers.WeatherForecastController",
+    "Method": "Get",
+    "RelativePath": "WeatherForecast",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Viajes_Saurio.WeatherForecast, Viajes_Saurio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "GetWeatherForecast"
+  }
+]
