@@ -1,0 +1,265 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100vw;
+    min-height: 100vh;
+    background-color: #e5e5e5; /* gris claro */
+}
+
+/* ---------- POMODORO ---------- */
+.pomodoro-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    margin-top: 50px;
+    margin-bottom: 60px;
+    width: 55%;
+    border: 2px solid #1d3557; /* azul fuerte */
+    border-radius: 15px;
+    background: #1d3557; /* azul fuerte */
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 8px 24px;
+    position: relative;
+}
+
+#cycles-input {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 60px;
+    text-align: center;
+    border: none;
+    border-radius: 6px;
+    padding: 5px;
+    font-size: 18px;
+}
+
+label[for="cycles-input"] {
+    position: absolute;
+    top: 0;
+    right: 20px;
+    font-size: 12px;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+.row-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 50px;
+    width: 100%;
+    margin: 10px 0;
+}
+
+.clock-container {
+    flex-direction: column;
+    align-items: center;
+}
+
+#clock {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 70px;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 15px;
+}
+
+label {
+    text-transform: uppercase;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+
+/* Inputs del pomodoro */
+.settings-container input {
+    padding: 5px;
+    width: 80px;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    border: none;
+    background-color: #fff;
+    border-radius: 6px;
+}
+
+.start-container {
+    justify-content: center;
+}
+
+#start-button {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding: 12px 20px;
+    text-transform: uppercase;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    background: #457b9d; /* azul más claro para contraste */
+    outline: 0;
+    box-shadow: rgba(0, 0, 0, 0.15) 1px 2px 4px;
+    transition: background 0.3s ease;
+}
+
+#start-button:hover {
+    background-color: #35607a;
+}
+
+.settings-container {
+    justify-content: center;
+    gap: 30px;
+    padding-bottom: 20px;
+}
+
+/* ---------- LISTA DE TAREAS ---------- */
+h1 {
+    text-align: center;
+    color: #1d3557; /* azul fuerte */
+}
+
+.container {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    width: 45%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #fefae0; /* amarillo suave */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: rgba(0,0,0,0.25) 0px 4px 12px;
+    border: 2px solid #1d3557; /* borde azul fuerte */
+}
+
+.search {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+form {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Input de tareas */
+.search input {
+    padding: 15px 10px;
+    outline: none;
+    width: 80%;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.li-container {
+    background-color: #fefae0; /* mismo amarillo suave */
+    width: 100%;
+    color: #1d3557;
+    margin-top: 20px;
+}
+
+ul {
+    padding: 0;
+}
+
+li {
+    list-style: none;
+    background-color: #e9ecef; /* gris claro */
+    border-radius: 10px;
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+}
+
+li p {
+    margin: 0;
+    padding: 15px;
+    width: 100%;
+}
+
+.btn-delete {
+    margin-left: auto;
+    border: none;
+    background-color: #d62828; /* rojo fuerte */
+    color: white;
+    font-weight: bold;
+    padding: 5px 10px;
+    outline: none;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    width: 10%;
+    font-size: 1.2em;
+    transition: background 0.3s ease;
+}
+
+.btn-delete:hover {
+    cursor: pointer;
+    background-color: #b71c1c; /* rojo más oscuro */
+}
+
+.btn-add {
+    padding: 5px 15px;
+    border: none;
+    color: white;
+    font-family: fantasy;
+    background-color: #1d3557; /* azul fuerte */
+    font-size: 1.4rem;
+    outline: none;
+    border-radius: 6px;
+    transition: background 0.3s ease;
+}
+
+.btn-add:hover {
+    cursor: pointer;
+    background-color: #35607a;
+}
+
+.empty {
+    color: #6c757d;
+    text-align: center;
+    margin-top: 15px;
+}
+
+#reset-button {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: 15px; /* separación respecto al botón START */
+    padding: 12px 20px;
+    text-transform: uppercase;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    background: #e63946; /* rojo suave para contraste */
+    outline: 0;
+    box-shadow: rgba(0, 0, 0, 0.15) 1px 2px 4px;
+    transition: background 0.3s ease;
+}
+
+#reset-button:hover {
+    background-color: #b71c1c; /* rojo más oscuro al pasar el mouse */
+}

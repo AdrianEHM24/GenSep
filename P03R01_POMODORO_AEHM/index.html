@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/style.css">
+    <title>Pomodoro 3000</title>
+</head>
+<body>
+    <!-- Aquí inicia la sección del pomodoro -->
+    <div class="pomodoro-container">
+        <div class="row-container clock-container">
+            <!-- Se coloca un encabezado que lleva el valor por defecto 25 -->
+            <h2 id="clock">25:00</h2>
+            <div class="input-container">
+            <label for="cycles-input">Ciclos pomodoro</label>
+            <!-- Se crea el input para seleccionar los ciclos del pomodoro -->
+            <input id="cycles-input" type="number" value="1" />
+            </div>
+        </div>
+        <div class="row-container start-container">
+            <!-- Se crean los botones START y RESET -->
+            <button id="start-button">START</button>
+            <button id="reset-button">RESET</button>
+        </div>
+        <div class="row-container settings-container">
+            <!-- Sección de los input para tiempo de trabajo, Break y descanso largo -->
+            <div class="input-container">
+                <label for="work-time">Tiempo de trabajo</label>
+                <input id="work-time" type="text" value="25" />
+            </div>
+            <div class="input-container">
+                <label for="break-time">Break</label>
+                <input id="break-time" type="text" value="5" />
+            </div>
+            <div class="input-container">
+                <label for="rest-time">Descanso largo</label>
+                <input id="rest-time" type="text" value="15" />
+            </div>
+        </div>
+
+    </div>
+    <!-- Sección de la lista de tareas -->
+    <div class="container">
+        <h1>Lista de Tareas</h1>
+        <div class="search">
+            <!-- Formulario para agregar tareas y su botón correspondiente-->
+            <form>
+                <input id="task-input" type="text" placeholder="Agregar tarea...">
+                <button class="btn-add">+</button>
+            </form>
+        </div>
+        <!-- Sección donde se agregan las tareas -->
+        <div class="li-container">
+            <ul>
+                
+            </ul>
+        </div>
+        <div class="empty">
+            <p>No tienes tareas pendientes.</p>
+        </div>
+        
+    </div>
+    <!-- Llamar a los scripts -->
+    <script src="JS/main.js"></script>
+
+    <script src="JS/pomodoro.js"></script>
+</body>
+</html>
