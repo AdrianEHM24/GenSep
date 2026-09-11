@@ -1,0 +1,81 @@
+<!--<p>productos works!</p> -->
+
+<!--<div class="container mt-4">
+    <h2>Movimientos de EPP</h2>
+    @if (loading) {<div>Cargando movimientos...</div>}
+    @else {
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Tipo de Movimiento</th><th>Id Producto</th><th>NombreProducto</th>
+                <th>ID Empleado</th><th>Cantidad</th><th>Motivo</th><th>FechaMovimiento</th>
+                <th>RegistradoPor</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let m of movimientos">
+                <td>{{m.tipoMovimiento}}</td>
+                <td>{{m.productoId}}</td>
+                <td>{{m.productoNombre}}</td>
+                <td><strong>{{m.empleadoId}}</strong></td>
+                <td>{{m.cantidad}}</td>
+                <td>{{m.motivo}}</td>
+                <td>{{m.fechaMovimiento}}</td>
+                <td>{{m.registradoPor}}</td>
+            </tr>
+        </tbody>
+    </table>}
+</div>
+-->
+<div class="container my-5">
+    <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+        <!-- Cabecera de la Tarjeta con elementos centrados -->
+        <div class="card-header bg-gradient bg-primary text-white p-4 text-center">
+            <div>
+                <h3 class="mb-1 fw-bold"><i class="bi bi-arrow-left-right me-2"></i>Movimientos de EPP</h3>
+                <p class="mb-0 text-white-50 small">Historial y control de entradas y salidas de equipo de protección personal.</p>
+            </div>
+        </div>
+
+        <!-- Cuerpo de la Tabla -->
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-hover table-striped align-middle mb-0 text-nowrap">
+                    <thead class="table-dark text-uppercase fs-7">
+                        <tr>
+                            <th class="py-3 ps-4">Tipo</th>
+                            <th class="py-3">ID Producto</th>
+                            <th class="py-3">Nombre Producto</th>
+                            <th class="py-3">ID Empleado</th>
+                            <th class="py-3">Cantidad</th>
+                            <th class="py-3">Motivo</th>
+                            <th class="py-3">Fecha</th>
+                            <th class="py-3 pe-4">Registrado Por</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let m of movimientos">
+                            <td class="ps-4">
+                                <span class="badge px-3 py-2 fw-bold" 
+                                      [ngClass]="{
+                                          'bg-danger': m.tipoMovimiento === 'SALIDA', 
+                                          'bg-success': m.tipoMovimiento === 'ENTRADA',
+                                          'bg-secondary': m.tipoMovimiento !== 'SALIDA' && m.tipoMovimiento !== 'ENTRADA'
+                                      }">
+                                    {{m.tipoMovimiento}}
+                                </span>
+                            </td>
+                            <td><span class="text-muted">#</span>{{m.productoId}}</td>
+                            <td class="fw-semibold text-dark">{{m.productoNombre}}</td>
+                            <td><strong class="text-primary">{{m.empleadoId}}</strong></td>
+                            <td><span class="badge bg-light text-dark border px-2 py-1">{{m.cantidad}}</span></td>
+                            <td>{{m.motivo}}</td>
+                            <td class="text-muted small">{{m.fechaMovimiento}}</td>
+                            <td class="pe-4 text-secondary">{{m.registradoPor}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

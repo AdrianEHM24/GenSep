@@ -1,0 +1,65 @@
+<!--<p>productos works!</p> -->
+
+<!--<div class="container mt-4">
+    <h2>Inventario de EPP</h2>
+    @if (loading) {<div>Cargando productos...</div>}
+    @else {
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Codigo</th><th>Nombre</th><th>Categoria</th>
+                <th>Stock</th><th>Min.</th><th>Precio</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let p of productos" [class.table-danger]="p.stockActual <= p.stockMinimo">
+                <td>{{p.codigo}}</td>
+                <td>{{p.nombre}}</td>
+                <td>{{p.categoria?.nombre}}</td>
+                <td><strong>{{p.stockActual}}</strong></td>
+                <td>{{p.stockMinimo}}</td>
+                <td>{{p.precio | currency:'MXN'}}</td>
+            </tr>
+        </tbody>
+    </table>}
+</div>
+-->
+<div class="container my-5">
+    <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+        <!-- Cabecera de la Tarjeta con elementos centrados -->
+        <div class="card-header bg-gradient bg-primary text-white p-4 text-center">
+            <div>
+                <h3 class="mb-1 fw-bold"><i class="bi bi-box-seam me-2"></i>Inventario de EPP</h3>
+                <p class="mb-0 text-white-50 small">Control y gestión de existencias del equipo de protección personal.</p>
+            </div>
+        </div>
+
+        <!-- Cuerpo de la Tabla -->
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-hover table-striped align-middle mb-0 text-nowrap">
+                    <thead class="table-dark text-uppercase fs-7">
+                        <tr>
+                            <th class="py-3 ps-4">Código</th>
+                            <th class="py-3">Nombre</th>
+                            <th class="py-3">Categoría</th>
+                            <th class="py-3">Stock</th>
+                            <th class="py-3">Min.</th>
+                            <th class="py-3 pe-4">Precio</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let p of productos" [class.table-danger]="p.stockActual <= p.stockMinimo">
+                            <td class="ps-4"><span class="text-muted">#</span>{{p.codigo}}</td>
+                            <td class="fw-semibold text-dark">{{p.nombre}}</td>
+                            <td><span class="badge bg-secondary px-2 py-1">{{p.categoria?.nombre}}</span></td>
+                            <td><strong class="text-primary">{{p.stockActual}}</strong></td>
+                            <td><span class="text-muted">{{p.stockMinimo}}</span></td>
+                            <td class="pe-4 fw-semibold text-success">{{p.precio | currency:'MXN'}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
