@@ -1,0 +1,320 @@
+﻿body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #0b1426; /* Fondo general oscuro para toda la app */
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+#view-title {
+    background-color: #0b1426;
+}
+
+form {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+}
+
+/* CONTENEDOR MAESTRO (Layout en dos columnas) */
+.app-layout {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* NAVBAR LATERAL FIJO PREMIUM */
+.sidebar-gourmet {
+    width: 260px !important;
+    min-width: 260px !important;
+    background-color: #ffffff;
+    border-right: 1px solid #f3ebe1;
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.02);
+    position: fixed !important;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 1.5rem;
+    z-index: 1030; /* Por encima de cualquier elemento */
+}
+
+.sidebar-brand {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 800;
+    font-size: 1.4rem;
+    color: #1e2229 !important;
+    text-decoration: none !important;
+    letter-spacing: -0.5px;
+    margin-bottom: 3rem;
+    display: block;
+    text-align: center;
+}
+
+    .sidebar-brand span {
+        color: #ea4c2a;
+    }
+
+/* Lista de navegación vertical */
+.sidebar-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex-grow: 1;
+}
+
+    .sidebar-nav .nav-link {
+        color: #5f6672;
+        font-weight: 600;
+        font-size: 0.95rem;
+        padding: 0.8rem 1.2rem !important;
+        border-radius: 50px;
+        transition: all 0.25s ease;
+        text-decoration: none !important;
+        display: block;
+    }
+
+        .sidebar-nav .nav-link:hover {
+            color: #ea4c2a !important;
+            background-color: #fff4f2;
+        }
+
+/* Resaltar la página activa */
+.nav-link-active {
+    background-color: #ea4c2a !important;
+    color: #ffffff !important;
+    box-shadow: 0 6px 15px rgba(234, 76, 42, 0.2) !important;
+}
+
+/* CONTENEDOR PRINCIPAL QUE EMPUJA EL DISEÑO A LA DERECHA Y PROTEGE CONTRA ZOOM */
+.body-content, .container-fluid.body-content {
+    margin-left: 260px !important; /* Empuja todo el contenido exacto del ancho del menú */
+    width: calc(100% - 260px) !important; /* Evita que rebase el ancho de la pantalla */
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+    box-sizing: border-box !important; /* Asegura que el padding no desborde al hacer zoom */
+    flex-grow: 1;
+}
+
+/* FOOTER DEBAJO DEL CONTENIDO */
+footer {
+    background-color: transparent !important;
+    border-top: 1px solid #1f3050;
+    padding: 1.5rem 2.5rem;
+    color: #ffffff;
+    font-size: 0.9rem;
+    margin-top: auto;
+}
+
+.footer-brand {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.menu-page-container {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #0b1426;
+    padding-top: 3rem;
+    padding-bottom: 5rem;
+}
+
+.menu-subtitle {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    color: #ea4c2a;
+    font-size: 1.25rem;
+    margin-bottom: 0.25rem;
+    display: block;
+}
+
+.menu-main-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 800;
+    font-size: 2.75rem;
+    color: #ffffff;
+}
+
+    .menu-main-title span {
+        color: #ea4c2a;
+    }
+
+/* FILTROS */
+.filtros {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 3.5rem;
+}
+
+    .filtros label {
+        display: none;
+    }
+
+    .filtros select {
+        background-color: #152238;
+        color: #ffffff;
+        font-weight: 600;
+        font-size: 0.9rem;
+        padding: 0.6rem 2.5rem 0.6rem 1.2rem;
+        border: 1px solid #1f3050;
+        border-radius: 50px;
+        cursor: pointer;
+        appearance: none;
+        outline: none;
+        background-repeat: no-repeat;
+        background-position: right 1.2rem center;
+        background-size: 14px 10px;
+        transition: all 0.2s;
+    }
+
+        .filtros select:focus {
+            border-color: #3b82f6;
+        }
+
+/* REESTRUCTURACIÓN DEL GRIDVIEW PARA DISEÑO DE TARJETAS (Cards) */
+.gridview-container-menu {
+    width: 100%;
+}
+
+    .gridview-container-menu table {
+        display: block;
+        width: 100% !important;
+        border: none !important;
+    }
+
+    .gridview-container-menu tbody {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 2rem;
+        width: 100%;
+        padding: 0;
+    }
+
+    .gridview-container-menu tr, .gridview-container-menu td {
+        display: block;
+        padding: 0 !important;
+        border: none !important;
+        background: none !important;
+    }
+
+/* TARJETAS CON FONDO BLANCO RESTAURADO */
+.row-card {
+    background-color: #ffffff !important; /* Fondo blanco original */
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(0,0,0,0.05);
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .row-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+    }
+
+.row-card-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    background-color: #eaeef3;
+    overflow: hidden;
+}
+
+.row-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.badge-floating {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.35rem 0.75rem;
+    border-radius: 6px;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.badge-status-disponible {
+    background-color: #198754;
+}
+
+.badge-status-no-disponible {
+    background-color: #dc3545;
+}
+
+.row-card-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.row-card-category {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #ff9800;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.25rem;
+}
+
+.row-card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1e2229 !important; /* Texto oscuro para contrastar sobre tarjeta blanca */
+    margin-bottom: 0.5rem;
+}
+
+.row-card-description, .row-card-subtext {
+    font-size: 0.85rem;
+    color: #828a99 !important;
+    line-height: 1.5;
+    margin-bottom: 1.25rem;
+}
+
+.row-card-footer {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px dashed #edf0f5;
+    padding-top: 1rem;
+}
+
+.row-card-price-area {
+    display: flex;
+    flex-direction: column;
+}
+
+.row-card-price {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #ea4c2a;
+}
+
+    .row-card-price span {
+        font-size: 0.8rem;
+        color: #a0a5b0;
+        font-weight: 400;
+    }
