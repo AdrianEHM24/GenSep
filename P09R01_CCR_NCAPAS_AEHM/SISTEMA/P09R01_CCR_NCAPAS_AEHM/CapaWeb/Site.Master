@@ -1,0 +1,133 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="CapaWeb.SiteMaster" %>
+
+<!DOCTYPE html>
+<html lang="es">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - Camiones, Choferes y Rutas</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+    <webopt:BundleReference runat="server" path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    
+    <asp:PlaceHolder runat="server">
+        <%: Styles.Render("~/Content/camionesWeb.css") %>
+    </asp:PlaceHolder>
+    
+    <!-- ESTILOS GLOBALES PARA EL TEMA OSCURO Y MENÚ CLARO -->
+    <style>
+        /* Fondo global oscuro para toda la aplicación */
+        body, .app-layout {
+            background-color: #0b1426 !important;
+            color: #ffffff !important;
+        }
+
+        /* Estilos forzados para el menú lateral (Claro) */
+        .sidebar-gourmet {
+            background-color: #f8f9fa !important; /* Gris muy claro/blanco */
+            border-right: 1px solid #dee2e6;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+        }
+
+        /* Textos del menú lateral */
+        .sidebar-brand {
+            color: #1a1a1a !important; /* Texto oscuro para el título */
+        }
+        .sidebar-brand span {
+            color: #0d6efd !important; /* Un acento azul para la palabra 'Rutas' */
+        }
+        .sidebar-nav .nav-link {
+            color: #4a5568 !important; /* Gris oscuro para los links */
+            font-weight: 500;
+            transition: color 0.3s ease, background-color 0.3s ease;
+        }
+        .sidebar-nav .nav-link:hover {
+            color: #0d6efd !important;
+            background-color: #e9ecef; /* Pequeño sombreado al pasar el mouse */
+            border-radius: 6px;
+        }
+
+        /* Asegurar que el contenedor principal no tenga fondos blancos residuales y empujarlo a la derecha */
+        .body-content {
+        background-color: transparent !important;
+        padding-left: 3rem !important; /* Empuja el contenido hacia la derecha */
+        padding-right: 1.5rem !important;
+        }
+
+        /* Estilos del Footer Mejorados */
+        footer {
+        background-color: transparent !important; /* Elimina el bloque blanco bruscamente agregado */
+        color: #ffffff !important; /* Texto gris azulado */
+        border-top: 1px solid #1f3050; /* Línea superior delgada y elegante que reemplaza al <hr> */
+        padding-top: 1.5rem;
+        padding-bottom: 1rem;
+        margin-top: 3rem;
+        }
+    </style>
+
+    <asp:ContentPlaceHolder ID="PageStyles" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+            </Scripts>
+        </asp:ScriptManager>
+
+        <div class="app-layout">
+            <!-- Barra lateral -->
+            <nav class="sidebar-gourmet p-3">
+                <a class="sidebar-brand text-decoration-none d-block mb-4" runat="server" href="~/">
+                    Camiones, Choferes y <span>Rutas</span>
+                </a>
+
+                <ul class="sidebar-nav list-unstyled">
+                    <li class="mb-2"><a class="nav-link px-3 py-2 text-decoration-none d-block" runat="server" href="~/">Inicio</a></li>
+                    <li class="mb-2"><a class="nav-link px-3 py-2 text-decoration-none d-block" runat="server" href="~/About">Acerca de</a></li>
+                    <li class="mb-2"><a class="nav-link px-3 py-2 text-decoration-none d-block" runat="server" href="~/Contact">Contacto</a></li>
+                    <li class="mb-2"><a class="nav-link px-3 py-2 text-decoration-none d-block" runat="server" href="~/Camiones">Camiones</a></li>
+                    <li class="mb-2"><a class="nav-link px-3 py-2 text-decoration-none d-block" runat="server" href="~/Choferes">Choferes</a></li>
+                    <li class="mb-2"><a class="nav-link px-3 py-2 text-decoration-none d-block" runat="server" href="~/Rutas">Rutas</a></li>
+                </ul>
+            </nav>
+            
+           <!-- Contenido Principal -->
+        <div class="container-fluid body-content py-4">
+    
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+    
+            <!-- Footer integrado y alineado a la derecha -->
+            <footer class="d-flex justify-content-end pr-4">
+            <p class="mb-0">&copy; <%: DateTime.Now.Year %> - <span class="footer-brand">Camiones, Choferes y Rutas</span></p>
+            </footer>
+
+</div>
+        </div>
+    </form>
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/Scripts/bootstrap.js") %>
+        <%: Scripts.Render("~/Scripts/camionesWeb.js") %>
+    </asp:PlaceHolder>
+    <asp:ContentPlaceHolder ID="PageScripts" runat="server"></asp:ContentPlaceHolder>
+</body>
+</html>
