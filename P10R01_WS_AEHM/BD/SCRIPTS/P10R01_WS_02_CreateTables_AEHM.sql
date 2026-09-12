@@ -1,0 +1,36 @@
+/*
+ P10R01_WS_AEHM
+ AUTOR: ADRIAN ELEUTERIO HERNANDEZ MARTINEZ
+ FECHA: 11/09/2026
+*/
+
+USE BD_Ejemplo
+GO
+
+--=============================
+-- CREACIÓN DE TABLAS
+--=============================
+
+BEGIN TRANSACTION
+	BEGIN TRY
+		IF NOT EXISTS(SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = N'Usuarios' AND TABLE_SCHEMA = 'dbo')
+		BEGIN
+			CREATE TABLE dbo.Usuarios(
+				Id INT IDENTITY(1,1) PRIMARY KEY,
+				Nombre VARCHAR(100) NOT NULL,
+				FechaRegistro DATETIME DEFAULT GETDATE()
+			);
+			PRINT 'Tabla Usuarios creada correctamente'
+		END
+		ELSE
+		BEGIN
+			PRINT 'Tabla Usuarios ya existe'
+		END
+	COMMIT TRANSACTION
+	END TRY
+	BEGIN CATCH
+		IF @@TRANCOUNT > 0
+			ROLLBACK TRANSACTION
+		THROW;
+	END CATCH
+GO
