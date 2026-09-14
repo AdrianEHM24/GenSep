@@ -1,0 +1,206 @@
+/* ============================================
+   Tabla de Pedidos - Today's Special
+   Estilo integrado con la plantilla Cafe House
+   ============================================ */
+
+.tm-pedidos-table-wrapper {
+  background-color: #ffffff;
+  border-radius: 6px;
+  padding: 20px 25px;
+  margin-bottom: 40px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  overflow-x: auto;              /* Scroll horizontal en móvil */
+}
+
+.tm-pedidos-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 15px;
+  color: #4a4a4a;
+}
+
+/* ---------- Encabezado ---------- */
+.tm-pedidos-table thead th {
+  text-align: left;
+  padding: 14px 12px;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #a8842a;                              /* Dorado de la plantilla */
+  border-bottom: 2px solid rgba(200, 160, 90, 0.5);
+  background-color: #faf7f1;
+}
+
+/* ---------- Filas ---------- */
+.tm-pedidos-table tbody tr {
+  border-bottom: 1px solid #ececec;
+  transition: background-color 0.15s ease;
+}
+
+.tm-pedidos-table tbody tr:hover {
+  background-color: #fdfbf6;                   /* Beige muy sutil al pasar */
+}
+
+.tm-pedidos-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.tm-pedidos-table tbody td {
+  padding: 14px 12px;
+  vertical-align: middle;
+}
+
+/* ---------- Celdas con estilo especial ---------- */
+.tm-pedidos-table .tm-pedido-id {
+  font-weight: 700;
+  color: #3a3a3a;
+  font-size: 16px;
+}
+
+.tm-pedidos-table .tm-pedido-total {
+  font-weight: 700;
+  color: #a8842a;
+  font-size: 16px;
+}
+
+/* ---------- Estados con badge ---------- */
+.tm-pedido-estado {
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.tm-pedido-estado.estado-pendiente  { background-color: #d9534f; }
+.tm-pedido-estado.estado-proceso    { background-color: #f0ad4e; }
+.tm-pedido-estado.estado-completado { background-color: #5cb85c; }
+.tm-pedido-estado.estado-cancelado  { background-color: #777777; }
+.tm-pedido-estado.estado-default    { background-color: #9a8a6a; }
+
+/* ---------- Fila vacía ---------- */
+.tm-pedidos-empty {
+  text-align: center;
+  color: #999;
+  padding: 40px 20px !important;
+  font-style: italic;
+}
+
+/* ---------- Alert de error ---------- */
+#alert-error {
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+/* ---------- Responsive: en móvil fuentes más pequeñas ---------- */
+@media (max-width: 767px) {
+  .tm-pedidos-table-wrapper {
+    padding: 12px;
+  }
+  .tm-pedidos-table {
+    font-size: 13.5px;
+  }
+  .tm-pedidos-table thead th,
+  .tm-pedidos-table tbody td {
+    padding: 10px 8px;
+  }
+  .tm-pedidos-table .tm-pedido-id,
+  .tm-pedidos-table .tm-pedido-total {
+    font-size: 14px;
+  }
+  .tm-pedido-estado {
+    font-size: 11px;
+    padding: 4px 9px;
+  }
+}
+
+/* Reducir el espacio vertical de la sección de bienvenida */
+.tm-welcome-section {
+  padding-top: 30px;      /* antes era mucho mayor */
+  padding-bottom: 30px;
+}
+
+.tm-welcome-content {
+  margin-top: 20px;       /* separa un poco del logo */
+  margin-bottom: 20px;
+}
+
+/* Reducir el padding superior del bloque principal */
+.tm-main-section {
+  padding-top: 40px;      /* antes tenía bastante más */
+}
+/* ============================================
+   Navbar con más items: reducir tamaño y espaciado
+   ============================================ */
+
+.tm-nav ul {
+  display: flex;
+  flex-wrap: nowrap;              /* Fuerza todo en una sola línea */
+  align-items: center;
+  gap: 4px;                       /* Espacio entre items */
+}
+
+.tm-nav ul li {
+  margin: 0 !important;           /* Quita márgenes laterales grandes */
+}
+
+.tm-nav ul li a {
+  font-size: 15px !important;     /* Letra más pequeña */
+  padding: 8px 10px !important;   /* Menos padding lateral */
+  letter-spacing: 0.5px !important;
+  white-space: nowrap;            /* Evita que el texto se parta */
+}
+
+/* Reduce el tamaño del logo y del nombre "Cafe TR" */
+.tm-logo-container .tm-site-logo {
+  max-height: 45px;
+  width: auto;
+}
+
+.tm-logo-container .tm-site-name {
+  font-size: 28px;                /* Un poco más chico */
+}
+/* ============================================
+   Ajuste de la taza del menú activo
+   (evita que se pegue al texto)
+   ============================================ */
+
+.tm-nav ul li a.active {
+  /* Taza: más grande y separada del texto */
+  background: url(../img/logo.png) no-repeat,
+              url(../img/nav-underline.png) no-repeat;
+
+  /* Tamaño: taza 22x22px | subrayado 74x17px */
+  background-size: 22px, 74px 17px;
+
+  /* Posición: taza pegada a la izquierda con un poco de aire,
+     subrayado centrado abajo */
+  background-position: 6px 30%, center bottom;
+
+  /* Asegura que el texto no se monte sobre la taza */
+  padding-left: 34px !important;
+}
+/* ============================================
+   El texto debe quedar ENCIMA de las lámparas
+   ============================================ */
+
+.tm-welcome-content {
+  position: relative;
+  z-index: 10;                 /* Texto encima */
+}
+
+.tm-lights-container {
+  z-index: 1;                  /* Lámparas debajo */
+  pointer-events: none;        /* Opcional: que no capture clics */
+}
+
+/* Empuja las lámparas un poco hacia arriba para que no toquen el texto */
+.tm-lights-container .light {
+  margin-top: -30px;           /* Ajusta este valor según tu gusto */
+}

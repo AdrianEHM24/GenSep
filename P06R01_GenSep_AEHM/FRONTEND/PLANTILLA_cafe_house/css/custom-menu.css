@@ -1,0 +1,183 @@
+/* ============================================
+   Ajustes personalizados para el menú dinámico
+   - Sin imagen de fondo: usamos un color oscuro
+   - Letras doradas (combinan con la plantilla)
+   ============================================ */
+
+/* ---------- Menú lateral: fondo oscuro sólido + scroll ---------- */
+.tm-side-menu {
+  background-color: #2e1f14;              /* Café oscuro tipo madera */
+  border: 2px solid rgba(200, 160, 90, 0.4); /* Borde dorado sutil */
+  border-radius: 8px;
+  padding: 20px 12px;
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+/* ---------- Lista con scroll ---------- */
+#menu-lateral {
+  list-style: none;
+  padding: 0 6px 0 0;
+  margin: 0;
+  max-height: 520px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Scrollbar personalizado (dorado sutil) */
+#menu-lateral::-webkit-scrollbar {
+  width: 6px;
+}
+#menu-lateral::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+}
+#menu-lateral::-webkit-scrollbar-thumb {
+  background-color: rgba(200, 160, 90, 0.55);
+  border-radius: 3px;
+}
+#menu-lateral::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(200, 160, 90, 0.85);
+}
+
+/* Firefox */
+#menu-lateral {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(200, 160, 90, 0.55) rgba(0, 0, 0, 0.3);
+}
+
+/* ---------- Items de la lista ---------- */
+#menu-lateral li {
+  border-bottom: 1px solid rgba(200, 160, 90, 0.25);
+}
+
+#menu-lateral li:last-child {
+  border-bottom: none;
+}
+
+#menu-lateral li a {
+  display: block;
+  padding: 10px 12px;
+  text-align: center;
+  font-size: 15px;
+  letter-spacing: 1px;
+  color: #c9a86a;                          /* Dorado apagado (normal) */
+  text-decoration: none;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+#menu-lateral li a:hover,
+#menu-lateral li a.active {
+  color: #f0d896;                          /* Dorado brillante */
+  background-color: rgba(200, 160, 90, 0.1);
+}
+
+/* ---------- Contenedor del producto (recuadro blanco) ---------- */
+.tm-product {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 25px 30px;
+  background-color: #ffffff;
+  margin-bottom: 30px;
+}
+
+.tm-product .tm-product-text {
+  flex: 1;
+  padding-right: 30px;
+}
+
+/* ---------- Nombre del producto ---------- */
+.tm-product .tm-product-title {
+  font-size: 26px;
+  margin-bottom: 8px;
+  color: #3a3a3a;
+  font-weight: 600;
+}
+
+/* ---------- Categoría y stock ---------- */
+.tm-product .tm-product-description {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #6a6a6a;
+  margin: 0;
+}
+
+.tm-product .producto-categoria {
+  font-weight: 600;
+  color: #a8842a;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.tm-product .producto-stock {
+  color: #7a7a7a;
+  font-weight: 500;
+}
+
+/* ---------- Círculo del precio ---------- */
+.tm-product .tm-product-price {
+  flex-shrink: 0;
+}
+
+.tm-product .tm-product-price-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background-color: rgba(60, 60, 60, 0.85);
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.tm-product .tm-product-price-link:hover {
+  transform: scale(1.05);
+  text-decoration: none;
+}
+
+.tm-product .tm-product-price-currency {
+  font-size: 18px;
+  font-family: 'Damion', cursive;
+  color: #e5c07b;
+  margin-right: 1px;
+  line-height: 1;
+  transform: translateY(-6px);
+}
+
+.tm-product .tm-product-price-amount {
+  font-size: 24px;
+  font-family: 'Damion', cursive;
+  color: #e5c07b;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* ---------- Responsive: en móvil ajusta tamaños ---------- */
+@media (max-width: 767px) {
+  .tm-side-menu {
+    padding: 15px 10px;
+  }
+  #menu-lateral {
+    max-height: 380px;
+  }
+  .tm-product {
+    padding: 20px;
+  }
+  .tm-product .tm-product-title {
+    font-size: 22px;
+  }
+  .tm-product .tm-product-description {
+    font-size: 15px;
+  }
+  .tm-product .tm-product-price-link {
+    width: 75px;
+    height: 75px;
+  }
+  .tm-product .tm-product-price-amount {
+    font-size: 20px;
+  }
+  .tm-product .tm-product-price-currency {
+    font-size: 15px;
+  }
+}
