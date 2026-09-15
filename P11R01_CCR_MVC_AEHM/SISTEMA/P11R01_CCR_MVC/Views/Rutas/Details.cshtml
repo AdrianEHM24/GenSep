@@ -1,0 +1,111 @@
+﻿@model P11R01_CCR_MVC.Models.Rutas
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="form-container-wrapper">
+    <div class="form-card shadow-sm">
+        <div class="form-header mb-4 pb-2 border-bottom">
+            <h2 class="mb-1 text-gradient fw-bold">Detalles de la Ruta</h2>
+            <p class="text-muted mb-0">Información completa del trayecto, unidades y conductor asignado.</p>
+        </div>
+
+        <div class="details-list mb-4">
+            <dl class="row g-3 mb-0">
+                <div class="col-md-6 mb-2">
+                    <dt class="text-muted fw-semibold small text-uppercase">
+                        @Html.DisplayNameFor(model => model.Origen)
+                    </dt>
+                    <dd class="fw-bold text-dark fs-6 mt-1">
+                        @Html.DisplayFor(model => model.Origen)
+                    </dd>
+                </div>
+
+                <div class="col-md-6 mb-2">
+                    <dt class="text-muted fw-semibold small text-uppercase">
+                        @Html.DisplayNameFor(model => model.Destino)
+                    </dt>
+                    <dd class="fw-bold text-dark fs-6 mt-1">
+                        @Html.DisplayFor(model => model.Destino)
+                    </dd>
+                </div>
+
+                <div class="col-md-6 mb-2">
+                    <dt class="text-muted fw-semibold small text-uppercase">
+                        @Html.DisplayNameFor(model => model.FechaSalida)
+                    </dt>
+                    <dd class="text-dark fs-6 mt-1">
+                        @Html.DisplayFor(model => model.FechaSalida)
+                    </dd>
+                </div>
+
+                <div class="col-md-6 mb-2">
+                    <dt class="text-muted fw-semibold small text-uppercase">
+                        @Html.DisplayNameFor(model => model.FechaLlegada)
+                    </dt>
+                    <dd class="text-dark fs-6 mt-1">
+                        @Html.DisplayFor(model => model.FechaLlegada)
+                    </dd>
+                </div>
+
+                <div class="col-md-6 mb-2">
+                    <dt class="text-muted fw-semibold small text-uppercase">
+                        @Html.DisplayNameFor(model => model.Distancia)
+                    </dt>
+                    <dd class="text-dark fs-6 mt-1">
+                        @Html.DisplayFor(model => model.Distancia)
+                    </dd>
+                </div>
+
+                <div class="col-md-6 mb-2">
+                    <dt class="text-muted fw-semibold small text-uppercase">
+                        @Html.DisplayNameFor(model => model.FechaRegistro)
+                    </dt>
+                    <dd class="text-dark fs-6 mt-1">
+                        @Html.DisplayFor(model => model.FechaRegistro)
+                    </dd>
+                </div>
+
+                <div class="col-md-6 mb-2">
+                    <dt class="text-muted fw-semibold small text-uppercase">
+                        @Html.DisplayNameFor(model => model.Camiones.Matricula)
+                    </dt>
+                    <dd class="text-dark fs-6 mt-1">
+                        @Html.DisplayFor(model => model.Camiones.Matricula)
+                    </dd>
+                </div>
+
+                <div class="col-md-6 mb-2">
+                    <dt class="text-muted fw-semibold small text-uppercase">
+                        @Html.DisplayNameFor(model => model.Choferes.Nombre)
+                    </dt>
+                    <dd class="text-dark fs-6 mt-1">
+                        @Html.DisplayFor(model => model.Choferes.Nombre)
+                    </dd>
+                </div>
+
+                <div class="col-md-12 mb-2">
+                    <dt class="text-muted fw-semibold small text-uppercase">
+                        @Html.DisplayNameFor(model => model.ATiempo)
+                    </dt>
+                    <dd class="mt-1">
+                        @if (Model.ATiempo)
+                        {
+                            <span class="badge bg-success bg-opacity-10 text-success px-3 py-2 rounded-pill fw-semibold">A tiempo</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-danger bg-opacity-10 text-danger px-3 py-2 rounded-pill fw-semibold">Con retraso</span>
+                        }
+                    </dd>
+                </div>
+            </dl>
+        </div>
+
+        <div class="form-actions-custom d-flex align-items-center gap-3 pt-3 border-top">
+            @Html.ActionLink(" Editar", "Edit", new { id = Model.IdRuta }, new { @class = "btn-success-custom shadow-sm bi bi-pencil-square" })
+            @Html.ActionLink("Regresar a la lista", "Index", null, new { @class = "btn-secondary-custom bi bi-arrow-left" })
+        </div>
+    </div>
+</div>

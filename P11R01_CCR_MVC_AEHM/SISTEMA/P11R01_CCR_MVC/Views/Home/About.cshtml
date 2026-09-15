@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "Acerca de";
+}
+
+<main aria-labelledby="title" class="container py-4 about-main-wrapper">
+    <!-- Cabecera Limpia y Dinámica -->
+    <div class="text-center mb-5 pb-2 border-bottom">
+        
+        <h2 id="title" class="fw-bold text-gradient display-6">@ViewBag.Title</h2>
+        <p class="lead fs-6 mx-auto fw-semibold" style="color: #475569; max-width: 600px;">
+            Conoce más sobre nuestra misión, visión y los valores corporativos que impulsan la excelencia en nuestra empresa.
+        </p>
+    </div>
+
+    <!-- Contenedor de Misión y Visión con diseño flotante -->
+    <div class="row g-4 mb-5">
+        <!-- Misión -->
+        <div class="col-md-6">
+            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-top border-primary border-4 about-card-custom position-relative">
+                <div class="d-flex align-items-center mb-3">
+                    <div class="bg-primary bg-opacity-10 text-primary p-3 rounded-3 me-3 fs-4">
+                        <i class="bi bi-bullseye"></i>
+                    </div>
+                    <h3 class="h4 text-primary fw-bold mb-0">Nuestra Misión</h3>
+                </div>
+                <p class="lh-lg mb-0 fw-medium" style="color: #334155;">
+                    Proveer soluciones logísticas seguras, eficientes y puntuales a nuestros clientes, optimizando el uso de nuestra flota de camiones y garantizando un servicio de transporte de alta calidad a través de la profesionalización continua de nuestros choferes y la optimización de rutas.
+                </p>
+            </div>
+        </div>
+
+        <!-- Visión -->
+        <div class="col-md-6">
+            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-top border-success border-4 about-card-custom position-relative">
+                <div class="d-flex align-items-center mb-3">
+                    <div class="bg-success bg-opacity-10 text-success p-3 rounded-3 me-3 fs-4">
+                        <i class="bi bi-eye-fill"></i>
+                    </div>
+                    <h3 class="h4 text-success fw-bold mb-0">Nuestra Visión</h3>
+                </div>
+                <p class="lh-lg mb-0 fw-medium" style="color: #334155;">
+                    Ser la empresa líder en gestión de transporte y distribución a nivel nacional, reconocida por su innovación tecnológica, compromiso ambiental y excelencia en el cumplimiento de cada ruta asignada.
+                </p>
+            </div>
+        </div>
+    </div>
+</main>

@@ -1,0 +1,101 @@
+﻿@model P11R01_CCR_MVC.Models.Camiones
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<div class="form-container-wrapper">
+    <div class="form-card shadow-sm">
+        <div class="form-header mb-4 pb-2 border-bottom">
+            <h2 class="mb-1 text-gradient fw-bold">Editar Camión</h2>
+            <p class="text-muted mb-0">Modifica los campos necesarios para actualizar la información de la unidad.</p>
+        </div>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "alert alert-danger py-2" })
+                @Html.HiddenFor(model => model.IdCamion)
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Matricula, htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.Matricula, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Matricula, "", new { @class = "text-danger small mt-1" })
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.TipoCamion, htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.TipoCamion, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.TipoCamion, "", new { @class = "text-danger small mt-1" })
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Modelo, htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.Modelo, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Modelo, "", new { @class = "text-danger small mt-1" })
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Marca, htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.Marca, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Marca, "", new { @class = "text-danger small mt-1" })
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Capacidad, htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.Capacidad, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Capacidad, "", new { @class = "text-danger small mt-1" })
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Kilometraje, htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.Kilometraje, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Kilometraje, "", new { @class = "text-danger small mt-1" })
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 mb-3">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.UrlFoto, htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.UrlFoto, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.UrlFoto, "", new { @class = "text-danger small mt-1" })
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 mb-4">
+                        <div class="form-group form-check ps-0">
+                            <label class="control-label d-flex align-items-center gap-2 cursor-pointer">
+                                @Html.EditorFor(model => model.Disponibilidad)
+                                <span class="fw-bold text-dark">Unidad disponible para asignación inmediata</span>
+                            </label>
+                            @Html.ValidationMessageFor(model => model.Disponibilidad, "", new { @class = "text-danger small mt-1" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-actions-custom d-flex align-items-center gap-3 pt-3 border-top">
+                    <input type="submit" value="Guardar Cambios" class="btn-success-custom shadow-sm bi bi-save-fill" />
+                    @Html.ActionLink("Regresar a la lista", "Index", null, new { @class = "btn-secondary-custom bi bi-arrow-left" })
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

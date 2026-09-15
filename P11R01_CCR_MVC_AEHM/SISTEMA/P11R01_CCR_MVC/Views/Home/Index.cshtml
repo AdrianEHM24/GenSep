@@ -1,0 +1,96 @@
+﻿@*@{
+        ViewBag.Title = "Home Page";
+    }
+
+    <main>
+        <section class="row" aria-labelledby="aspnetTitle">
+            <h1 id="title">ASP.NET</h1>
+            <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
+            <p><a href="https://asp.net" class="btn btn-primary btn-md">Learn more &raquo;</a></p>
+        </section>
+
+        <div class="row">
+            <section class="col-md-4" aria-labelledby="gettingStartedTitle">
+                <h2 id="gettingStartedTitle">Getting started</h2>
+                <p>
+                    ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
+                    enables a clean separation of concerns and gives you full control over markup
+                    for enjoyable, agile development.
+                </p>
+                <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+            </section>
+            <section class="col-md-4" aria-labelledby="librariesTitle">
+                <h2 id="librariesTitle">Get more libraries</h2>
+                <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+                <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+            </section>
+            <section class="col-md-4" aria-labelledby="hostingTitle">
+                <h2 id="hostingTitle">Web Hosting</h2>
+                <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+                <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+            </section>
+        </div>
+    </main>*@
+@{
+    ViewBag.Title = "Página principal";
+}
+
+<main class="home-container">
+    <!-- Sección de Bienvenida / Hero Dinámica -->
+    <section class="row align-items-center py-5 mb-5 home-hero text-center rounded-4 shadow-sm p-4" aria-labelledby="aspnetTitle">
+        <div class="col-md-12">
+            <h1 id="title" class="display-4 fw-bold text-dark mb-3">Sistema de Gestión de <span class="text-gradient">Transporte y Logística</span></h1>
+            <p class="lead mx-auto mt-2 fw-semibold" style="color: #475569; max-width: 700px;">
+                Plataforma integral diseñada para optimizar el control operativo de tu empresa mediante la administración eficiente de flotas, personal y trayectos.
+            </p>
+        </div>
+    </section>
+
+    <!-- Tarjetas de las 3 tablas principales con Animaciones -->
+    <div class="row g-4 mb-3">
+        <!-- Módulo de Camiones -->
+        <div class="col-md-4">
+            <div class="card h-100 custom-card border-0 shadow-sm">
+                <div class="card-body d-flex flex-column p-4">
+                    <h3 class="card-title text-dark h5 fw-bold">Módulo de Camiones</h3>
+                    <p class="card-text mt-2 fw-medium" style="color: #334155;">
+                        Administra el parque vehicular registrando nuevas unidades, controlando capacidades, marcas, modelos y el estado operativo de cada camión.
+                    </p>
+                    <div class="mt-auto pt-3">
+                        @Html.ActionLink("Gestionar Camiones", "Index", "Camiones", null, new { @class = "btn btn-primary w-100 py-2 fw-semibold custom-btn-action" })
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Módulo de Choferes -->
+        <div class="col-md-4">
+            <div class="card h-100 custom-card border-0 shadow-sm">
+                <div class="card-body d-flex flex-column p-4">
+                    <h3 class="card-title text-dark h5 fw-bold">Módulo de Choferes</h3>
+                    <p class="card-text mt-2 fw-medium" style="color: #334155;">
+                        Lleva el control de los conductores autorizados, su información y licencias vigentes.
+                    </p>
+                    <div class="mt-auto pt-3">
+                        @Html.ActionLink("Gestionar Choferes", "Index", "Choferes", null, new { @class = "btn btn-success w-100 py-2 fw-semibold custom-btn-action" })
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Módulo de Rutas -->
+        <div class="col-md-4">
+            <div class="card h-100 custom-card border-0 shadow-sm">
+                <div class="card-body d-flex flex-column p-4">
+                    <h3 class="card-title text-dark h5 fw-bold">Módulo de Rutas</h3>
+                    <p class="card-text mt-2 fw-medium" style="color: #334155;">
+                        Asigna la ruta al chofer y unidad adecuados con el origen y destino correspondiente.
+                    </p>
+                    <div class="mt-auto pt-3">
+                        @Html.ActionLink("Gestionar Rutas", "Index", "Rutas", null, new { @class = "btn btn-info text-white w-100 py-2 fw-semibold custom-btn-action" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

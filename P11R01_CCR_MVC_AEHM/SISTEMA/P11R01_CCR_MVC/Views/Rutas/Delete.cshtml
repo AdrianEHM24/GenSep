@@ -1,0 +1,91 @@
+﻿@model P11R01_CCR_MVC.Models.Rutas
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<div class="form-container-wrapper">
+    <div class="form-card shadow-sm border-danger border-opacity-25">
+        <div class="form-header mb-4 pb-2 border-bottom">
+            <h2 class="mb-1 text-danger fw-bold">Eliminar Ruta</h2>
+            <p class="text-muted mb-0">¿Estás seguro de que deseas eliminar este registro? Esta acción no se puede deshacer.</p>
+        </div>
+
+        <div class="details-list mb-4">
+            <dl class="row g-3 mb-0">
+                <dt class="col-sm-4 text-muted fw-semibold">
+                    @Html.DisplayNameFor(model => model.Origen)
+                </dt>
+                <dd class="col-sm-8 fw-bold text-dark">
+                    @Html.DisplayFor(model => model.Origen)
+                </dd>
+
+                <dt class="col-sm-4 text-muted fw-semibold">
+                    @Html.DisplayNameFor(model => model.Destino)
+                </dt>
+                <dd class="col-sm-8 text-dark">
+                    @Html.DisplayFor(model => model.Destino)
+                </dd>
+
+                <dt class="col-sm-4 text-muted fw-semibold">
+                    @Html.DisplayNameFor(model => model.FechaSalida)
+                </dt>
+                <dd class="col-sm-8 text-dark">
+                    @Html.DisplayFor(model => model.FechaSalida)
+                </dd>
+
+                <dt class="col-sm-4 text-muted fw-semibold">
+                    @Html.DisplayNameFor(model => model.FechaLlegada)
+                </dt>
+                <dd class="col-sm-8 text-dark">
+                    @Html.DisplayFor(model => model.FechaLlegada)
+                </dd>
+
+                <dt class="col-sm-4 text-muted fw-semibold">
+                    @Html.DisplayNameFor(model => model.ATiempo)
+                </dt>
+                <dd class="col-sm-8 text-dark">
+                    @Html.DisplayFor(model => model.ATiempo)
+                </dd>
+
+                <dt class="col-sm-4 text-muted fw-semibold">
+                    @Html.DisplayNameFor(model => model.Distancia)
+                </dt>
+                <dd class="col-sm-8 text-dark">
+                    @Html.DisplayFor(model => model.Distancia)
+                </dd>
+
+                <dt class="col-sm-4 text-muted fw-semibold">
+                    @Html.DisplayNameFor(model => model.FechaRegistro)
+                </dt>
+                <dd class="col-sm-8 text-dark">
+                    @Html.DisplayFor(model => model.FechaRegistro)
+                </dd>
+
+                <dt class="col-sm-4 text-muted fw-semibold">
+                    @Html.DisplayNameFor(model => model.Camiones.Matricula)
+                </dt>
+                <dd class="col-sm-8 text-dark">
+                    @Html.DisplayFor(model => model.Camiones.Matricula)
+                </dd>
+
+                <dt class="col-sm-4 text-muted fw-semibold">
+                    @Html.DisplayNameFor(model => model.Choferes.Nombre)
+                </dt>
+                <dd class="col-sm-8 text-dark">
+                    @Html.DisplayFor(model => model.Choferes.Nombre)
+                </dd>
+            </dl>
+        </div>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions-custom d-flex align-items-center gap-3 pt-3 border-top">
+                <input type="submit" value="Delete" class="btn-danger-custom shadow-sm bi bi-trash-fill" />
+                @Html.ActionLink("Regresar a la lista", "Index", null, new { @class = "btn-secondary-custom bi bi-arrow-left" })
+            </div>
+        }
+    </div>
+</div>

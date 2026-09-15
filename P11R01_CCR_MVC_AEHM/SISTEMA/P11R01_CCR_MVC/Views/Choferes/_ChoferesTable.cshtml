@@ -1,0 +1,159 @@
+﻿@model P11R01_CCR_MVC.Models.PagedResult<P11R01_CCR_MVC.Models.Choferes>
+
+<div class="table-responsive">
+    <table class="table table-striped align-middle" id="searchableTable">
+        <thead>
+            <tr>
+                <th>Foto</th>
+                <th>@Html.DisplayNameFor(model => model.Items.FirstOrDefault().Nombre)</th>
+                <th>@Html.DisplayNameFor(model => model.Items.FirstOrDefault().ApPaterno)</th>
+                <th>@Html.DisplayNameFor(model => model.Items.FirstOrDefault().ApMaterno)</th>
+                <th>@Html.DisplayNameFor(model => model.Items.FirstOrDefault().Telefono)</th>
+                <th>@Html.DisplayNameFor(model => model.Items.FirstOrDefault().Licencia)</th>
+                <th>@Html.DisplayNameFor(model => model.Items.FirstOrDefault().Disponibilidad)</th>
+                <th class="text-center">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (!Model.Items.Any())
+            {
+                <tr>
+                    <td colspan="8" class="text-center text-muted py-4">
+                        <i class="bi bi-inbox fs-4 d-block mb-2"></i>
+                        No se encontraron choferes que coincidan con la búsqueda.
+                    </td>
+                </tr>
+            }
+            else
+            {
+                foreach (var item in Model.Items)
+                {
+                    <tr>
+                        <td>
+                            @if (!string.IsNullOrEmpty(item.UrlFoto))
+                            {
+                                <img src="@item.UrlFoto" alt="Foto" class="table-avatar" onerror="this.onerror=null;this.src='https://via.placeholder.com/40';" />
+                            }
+                            else
+                            {
+                                <div class="avatar-placeholder">
+                                    @(item.Nombre != null && item.Nombre.Length > 0 ? item.Nombre.Substring(0, 1).ToUpper() : "C")
+                                </div>
+                            }
+                        </td>
+                        <td class="fw-bold text-dark">@Html.DisplayFor(modelItem => item.Nombre)</td>
+                        <td>@Html.DisplayFor(modelItem => item.ApPaterno)</td>
+                        <td>@Html.DisplayFor(modelItem => item.ApMaterno)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Telefono)</td>
+                        <td><span class="badge bg-secondary bg-opacity-10 text-dark border px-2 py-1">@Html.DisplayFor(modelItem => item.Licencia)</span></td>
+                        <td>
+                            @if (item.Disponibilidad)
+                            {
+                                <span class="badge bg-success bg-opacity-10 text-success px-3 py-2 rounded-pill fw-semibold"><i class="bi bi-check-circle-fill me-1"></i> Disponible</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-danger bg-opacity-10 text-danger px-3 py-2 rounded-pill fw-semibold"><i class="bi bi-x-circle-fill me-1"></i> Ocupado</span>
+                            }
+                        </td>
+                        <td>
+                            <div class="d-flex justify-content-center gap-2">
+                                @Html.ActionLink(" Editar", "Edit", new { id = item.IdChofer }, new { @class = "btn-action-text btn-edit-text bi bi-pencil-square" })
+                                @Html.ActionLink(" Detalles", "Details", new { id = item.IdChofer }, new { @class = "btn-action-text btn-details-text bi bi-eye-fill" })
+                                @Html.ActionLink(" Eliminar", "Delete", new { id = item.IdChofer }, new { @class = "btn-action-text btn-delete-text bi bi-trash-fill" })
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+
+<!-- Controles de Paginación Optimizados (ventana deslizante + flechas) -->
+@if (Model.TotalPages > 1)
+{
+    int windowSize = 5;
+    int startPage = Math.Max(1, Model.PageNumber - windowSize);
+    int endPage = Math.Min(Model.TotalPages, Model.PageNumber + windowSize);
+
+    <nav aria-label="Paginación de choferes" class="mt-4">
+        <ul class="pagination justify-content-center mb-2 flex-wrap">
+
+            <!-- Primera página -->
+            <li class="page-item @(Model.HasPreviousPage ? "" : "disabled")">
+                <a href="#" class="page-link page-link-ajax" data-page="1"
+                   tabindex="@(Model.HasPreviousPage ? "0" : "-1")" title="Primera página">
+                    <i class="bi bi-chevron-double-left"></i>
+                </a>
+            </li>
+
+            <!-- Anterior -->
+            <li class="page-item @(Model.HasPreviousPage ? "" : "disabled")">
+                <a href="#" class="page-link page-link-ajax" data-page="@(Model.PageNumber - 1)"
+                   tabindex="@(Model.HasPreviousPage ? "0" : "-1")" title="Anterior">
+                    <i class="bi bi-chevron-left"></i>
+                </a>
+            </li>
+
+            <!-- Primera página + elipsis si aplica -->
+            @if (startPage > 1)
+            {
+                <li class="page-item">
+                    <a href="#" class="page-link page-link-ajax" data-page="1">1</a>
+                </li>
+                if (startPage > 2)
+                {
+                    <li class="page-item disabled"><span class="page-link">…</span></li>
+                }
+            }
+
+            <!-- Ventana de páginas alrededor de la actual -->
+            @for (int i = startPage; i <= endPage; i++)
+            {
+                <li class="page-item @(i == Model.PageNumber ? "active" : "")">
+                    <a href="#" class="page-link page-link-ajax" data-page="@i">@i</a>
+                </li>
+            }
+
+            <!-- Elipsis + última página si aplica -->
+            @if (endPage < Model.TotalPages)
+            {
+                if (endPage < Model.TotalPages - 1)
+                {
+                    <li class="page-item disabled"><span class="page-link">…</span></li>
+                }
+                <li class="page-item">
+                    <a href="#" class="page-link page-link-ajax" data-page="@Model.TotalPages">@Model.TotalPages</a>
+                </li>
+            }
+
+            <!-- Siguiente -->
+            <li class="page-item @(Model.HasNextPage ? "" : "disabled")">
+                <a href="#" class="page-link page-link-ajax" data-page="@(Model.PageNumber + 1)"
+                   tabindex="@(Model.HasNextPage ? "0" : "-1")" title="Siguiente">
+                    <i class="bi bi-chevron-right"></i>
+                </a>
+            </li>
+
+            <!-- Última página -->
+            <li class="page-item @(Model.HasNextPage ? "" : "disabled")">
+                <a href="#" class="page-link page-link-ajax" data-page="@Model.TotalPages"
+                   tabindex="@(Model.HasNextPage ? "0" : "-1")" title="Última página">
+                    <i class="bi bi-chevron-double-right"></i>
+                </a>
+            </li>
+        </ul>
+
+        <p class="text-center text-muted small mb-0">
+            Mostrando @Model.Items.Count() de @Model.TotalItems.ToString("N0") registros
+            (Página @Model.PageNumber.ToString("N0") de @Model.TotalPages.ToString("N0"))
+        </p>
+    </nav>
+}
+else
+{
+    <p class="text-center text-muted small mt-3 mb-0">
+        Mostrando @Model.Items.Count() de @Model.TotalItems.ToString("N0") registros
+    </p>
+}

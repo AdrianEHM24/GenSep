@@ -1,0 +1,102 @@
+﻿@model P11R01_CCR_MVC.Models.Camiones
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="form-container-wrapper">
+    <div class="form-card shadow-sm">
+        <div class="form-header mb-4 pb-2 border-bottom">
+            <h2 class="mb-1 text-gradient fw-bold">Detalles del Camión</h2>
+            <p class="text-muted mb-0">Información completa y estado actual de la unidad vehicular.</p>
+        </div>
+
+        <div class="details-list mb-4">
+            <dl class="row g-3 mb-0">
+                <div class="col-md-6 mb-2">
+                    <dt class="text-muted fw-semibold small text-uppercase">
+                        @Html.DisplayNameFor(model => model.Matricula)
+                    </dt>
+                    <dd class="fw-bold text-dark fs-6 mt-1">
+                        @Html.DisplayFor(model => model.Matricula)
+                    </dd>
+                </div>
+
+                <div class="col-md-6 mb-2">
+                    <dt class="text-muted fw-semibold small text-uppercase">
+                        @Html.DisplayNameFor(model => model.TipoCamion)
+                    </dt>
+                    <dd class="text-dark fs-6 mt-1">
+                        @Html.DisplayFor(model => model.TipoCamion)
+                    </dd>
+                </div>
+
+                <div class="col-md-6 mb-2">
+                    <dt class="text-muted fw-semibold small text-uppercase">
+                        @Html.DisplayNameFor(model => model.Modelo)
+                    </dt>
+                    <dd class="text-dark fs-6 mt-1">
+                        @Html.DisplayFor(model => model.Modelo)
+                    </dd>
+                </div>
+
+                <div class="col-md-6 mb-2">
+                    <dt class="text-muted fw-semibold small text-uppercase">
+                        @Html.DisplayNameFor(model => model.Marca)
+                    </dt>
+                    <dd class="text-dark fs-6 mt-1">
+                        @Html.DisplayFor(model => model.Marca)
+                    </dd>
+                </div>
+
+                <div class="col-md-6 mb-2">
+                    <dt class="text-muted fw-semibold small text-uppercase">
+                        @Html.DisplayNameFor(model => model.Capacidad)
+                    </dt>
+                    <dd class="text-dark fs-6 mt-1">
+                        @Html.DisplayFor(model => model.Capacidad)
+                    </dd>
+                </div>
+
+                <div class="col-md-6 mb-2">
+                    <dt class="text-muted fw-semibold small text-uppercase">
+                        @Html.DisplayNameFor(model => model.Kilometraje)
+                    </dt>
+                    <dd class="text-dark fs-6 mt-1">
+                        @Html.DisplayFor(model => model.Kilometraje)
+                    </dd>
+                </div>
+
+                <div class="col-md-12 mb-2">
+                    <dt class="text-muted fw-semibold small text-uppercase">
+                        @Html.DisplayNameFor(model => model.UrlFoto)
+                    </dt>
+                    <dd class="text-muted text-truncate fs-6 mt-1" style="max-width: 450px;" title="@Model.UrlFoto">
+                        @Html.DisplayFor(model => model.UrlFoto)
+                    </dd>
+                </div>
+
+                <div class="col-md-12 mb-2">
+                    <dt class="text-muted fw-semibold small text-uppercase">
+                        @Html.DisplayNameFor(model => model.Disponibilidad)
+                    </dt>
+                    <dd class="mt-1">
+                        @if (Model.Disponibilidad)
+                        {
+                            <span class="badge bg-success bg-opacity-10 text-success px-3 py-2 rounded-pill fw-semibold">Disponible</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-danger bg-opacity-10 text-danger px-3 py-2 rounded-pill fw-semibold">No disponible</span>
+                        }
+                    </dd>
+                </div>
+            </dl>
+        </div>
+
+        <div class="form-actions-custom d-flex align-items-center gap-3 pt-3 border-top">
+            @Html.ActionLink(" Editar", "Edit", new { id = Model.IdCamion }, new { @class = "btn-success-custom shadow-sm bi bi-pencil-square" })
+            @Html.ActionLink("Regresar a la lista", "Index", null, new { @class = "btn-secondary-custom bi bi-arrow-left" })
+        </div>
+    </div>
+</div>

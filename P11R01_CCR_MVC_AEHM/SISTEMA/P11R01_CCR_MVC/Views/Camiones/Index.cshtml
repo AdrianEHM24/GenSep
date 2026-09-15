@@ -1,0 +1,120 @@
+﻿@model P11R01_CCR_MVC.Models.PagedResult<P11R01_CCR_MVC.Models.Camiones>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container-fluid px-0">
+    <!-- Cabecera de Módulo y Buscador en Tiempo Real -->
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-4 pb-3 border-bottom">
+        <div>
+            <h2 class="mb-1 text-gradient fw-bold"><i class="bi bi-truck text-primary me-2"></i>Gestión de Camiones</h2>
+            <p class="text-muted mb-0">Administra y supervisa el registro de la flota vehicular.</p>
+        </div>
+        <div class="d-flex align-items-center gap-3">
+            <!-- Barra de Buscador en Tiempo Real -->
+            <div class="search-box-wrapper" style="min-width: 260px;">
+                <i class="bi bi-search search-icon"></i>
+                <input type="text" id="liveSearchInput" class="form-control"
+                       placeholder="Buscar camión..."
+                       value="@Model.SearchString"
+                       autocomplete="off" />
+            </div>
+            @Html.ActionLink(" Crear Nuevo Camión", "Create", null, new { @class = "btn-success-custom shadow-sm bi bi-plus-circle-fill text-nowrap" })
+        </div>
+    </div>
+
+    <!-- Contenedor dinámico: tabla + paginación -->
+    <div id="camionesContainer">
+        @Html.Partial("_CamionesTable", Model)
+    </div>
+</div>
+
+<!-- Indicador de carga -->
+<div id="loadingOverlay" style="display:none; position:fixed; inset:0; background:rgba(255,255,255,0.5); z-index:9999; justify-content:center; align-items:center;">
+    <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Cargando...</span>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const searchInput = document.getElementById("liveSearchInput");
+            const container = document.getElementById("camionesContainer");
+            const overlay = document.getElementById("loadingOverlay");
+
+            let debounceTimer = null;
+            let currentRequestId = 0;
+
+            // ---------------------------
+            // Carga AJAX de la tabla
+            // ---------------------------
+            function loadTable(page, search) {
+                if (overlay) overlay.style.display = "flex";
+
+                const requestId = ++currentRequestId;
+
+                const url = '@Url.Action("Index", "Camiones")'
+                    + '?page=' + encodeURIComponent(page || 1)
+                    + '&searchString=' + encodeURIComponent(search || '');
+
+                fetch(url, {
+                    method: 'GET',
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest'
+                    }
+                })
+                .then(response => {
+                    if (!response.ok) throw new Error('Error en la respuesta: ' + response.status);
+                    return response.text();
+                })
+                .then(html => {
+                    if (requestId === currentRequestId) {
+                        container.innerHTML = html;
+                    }
+                })
+                .catch(err => {
+                    console.error('Error al cargar la tabla:', err);
+                })
+                .finally(() => {
+                    if (requestId === currentRequestId && overlay) {
+                        overlay.style.display = "none";
+                    }
+                });
+            }
+
+            // ---------------------------
+            // Buscador en tiempo real con debounce (300 ms)
+            // ---------------------------
+            if (searchInput) {
+                searchInput.addEventListener("input", function () {
+                    const value = searchInput.value;
+                    clearTimeout(debounceTimer);
+                    debounceTimer = setTimeout(function () {
+                        loadTable(1, value);
+                    }, 300);
+                });
+            }
+
+            // ---------------------------
+            // Delegación de eventos para los links de paginación
+            // ---------------------------
+            container.addEventListener("click", function (e) {
+                const link = e.target.closest(".page-link-ajax");
+                if (!link) return;
+
+                e.preventDefault();
+
+                if (link.closest(".page-item").classList.contains("disabled")) return;
+
+                const page = link.getAttribute("data-page");
+                const search = searchInput ? searchInput.value : "";
+                loadTable(page, search);
+
+                // Scroll suave al tope
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+    </script>
+}
