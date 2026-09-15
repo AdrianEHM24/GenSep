@@ -1,0 +1,412 @@
+﻿/* ==========================================================================
+   ESTILOS GLOBALES - SISTEMA DE LOGÍSTICA
+   ========================================================================== */
+body {
+    background-color: #f0f2f5;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #212529;
+    overflow-x: hidden;
+}
+
+.container.body-content, main {
+    background: #ffffff;
+    padding: 30px 35px;
+    border-radius: 14px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.05);
+    margin-top: 25px;
+    margin-bottom: 25px;
+    max-width: 100% !important;
+}
+
+/* Títulos principales */
+h2 {
+    color: #1e3c72;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+/* ==========================================================================
+   NAVBAR PROFESIONAL Y ANIMADO
+   ========================================================================== */
+.custom-navbar {
+    background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%) !important;
+    padding: 14px 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+}
+
+.brand-animate {
+    transition: transform 0.3s ease;
+}
+
+    .brand-animate:hover {
+        transform: scale(1.03);
+    }
+
+.custom-nav-link {
+    position: relative;
+    font-weight: 600;
+    padding: 8px 14px !important;
+    margin: 0 2px;
+    border-radius: 6px;
+    color: rgba(255, 255, 255, 0.85) !important;
+    transition: all 0.3s ease-in-out;
+}
+
+    .custom-nav-link::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 4px;
+        left: 50%;
+        background-color: #38ef7d;
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+    }
+
+    .custom-nav-link:hover {
+        color: #ffffff !important;
+        background-color: rgba(255, 255, 255, 0.12);
+        transform: translateY(-1px);
+    }
+
+        .custom-nav-link:hover::after {
+            width: 65%;
+        }
+
+/* ==========================================================================
+   ESTILOS DINÁMICOS Y ANIMACIONES GENERALES
+   ========================================================================== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.home-container, .form-container-wrapper, .about-container {
+    animation: fadeInUp 0.4s ease-out forwards;
+}
+
+.home-hero {
+    background: linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%);
+    border: 1px solid #e2e8f0;
+}
+
+.text-gradient {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.custom-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 12px;
+    background-color: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.05) !important;
+}
+
+    .custom-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08) !important;
+    }
+
+/* ==========================================================================
+   NUEVAS MEJORAS: DASHBOARD STATS Y AVATARES
+   ========================================================================== */
+.stat-card {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    border-radius: 12px;
+    background: #ffffff;
+}
+
+    .stat-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    }
+
+.table-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #e2e8f0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.avatar-placeholder {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: #e2e8f0;
+    color: #64748b;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.search-box-wrapper {
+    position: relative;
+}
+
+    .search-box-wrapper .search-icon {
+        position: absolute;
+        top: 50%;
+        left: 14px;
+        transform: translateY(-50%);
+        color: #94a3b8;
+    }
+
+    .search-box-wrapper .form-control {
+        padding-left: 38px;
+        border-radius: 10px;
+        border: 1px solid #cbd5e1;
+    }
+
+/* ==========================================================================
+   FORMULARIOS Y TARJETAS CENTRADAS
+   ========================================================================== */
+.form-container-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.form-card {
+    background: #ffffff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.control-label {
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 6px;
+    display: block;
+    font-size: 0.9rem;
+}
+
+.form-control {
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+    padding: 10px 14px;
+    font-size: 0.98rem;
+    color: #1e293b;
+    font-weight: 500;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    width: 100%;
+}
+
+    .form-control:focus {
+        border-color: #2563eb;
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+        outline: none;
+    }
+
+/* ==========================================================================
+   BOTONES Y ACCIONES DE FORMULARIOS
+   ========================================================================== */
+.form-actions-custom {
+    margin-top: 20px;
+}
+
+.btn-success-custom, input[type="submit"][value="Create"], input[type="submit"][value="Save"], input[type="submit"][value="Guardar Cambios"], a.btn-success-custom {
+    background-color: #16a34a !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 8px;
+    padding: 10px 24px;
+    font-weight: 700;
+    box-shadow: 0 4px 10px rgba(22, 163, 74, 0.25);
+    transition: all 0.2s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+    .btn-success-custom:hover, input[type="submit"][value="Create"]:hover, input[type="submit"][value="Save"]:hover, input[type="submit"][value="Guardar Cambios"]:hover, a.btn-success-custom:hover {
+        background-color: #15803d !important;
+        transform: translateY(-1px);
+        color: #ffffff !important;
+    }
+
+.btn-danger-custom, input[type="submit"][value="Delete"], input[type="submit"][value="Eliminar Camión"] {
+    background-color: #dc2626 !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 8px;
+    padding: 10px 24px;
+    font-weight: 700;
+    box-shadow: 0 4px 10px rgba(220, 38, 38, 0.25);
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+    .btn-danger-custom:hover, input[type="submit"][value="Delete"]:hover, input[type="submit"][value="Eliminar Camión"]:hover {
+        background-color: #b91c1c !important;
+        transform: translateY(-1px);
+    }
+
+.btn-secondary-custom {
+    background-color: #f1f5f9;
+    color: #475569 !important;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-weight: 700;
+    text-decoration: none !important;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+}
+
+    .btn-secondary-custom:hover {
+        background-color: #e2e8f0;
+        color: #1e293b !important;
+        transform: translateY(-1px);
+    }
+
+/* ==========================================================================
+   OPTIMIZACIÓN DE TABLAS
+   ========================================================================== */
+.table-responsive {
+    width: 100%;
+    overflow-x: hidden !important;
+    border-radius: 10px;
+    border: 1px solid #cbd5e1;
+    margin-top: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+
+.table {
+    width: 100% !important;
+    margin-bottom: 0;
+    border-collapse: collapse;
+    table-layout: auto;
+}
+
+    .table thead th {
+        background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+        color: #ffffff;
+        border: none;
+        padding: 14px 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        letter-spacing: 0.8px;
+        text-align: left;
+    }
+
+    .table tbody td {
+        padding: 14px 12px;
+        vertical-align: middle;
+        border-top: 1px solid #e2e8f0;
+        color: #1e293b;
+        font-size: 0.93rem;
+        font-weight: 500;
+        word-break: break-word;
+    }
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f8fafc;
+}
+
+.table tbody tr:hover {
+    background-color: #edf2f7;
+    transition: background-color 0.15s ease-in-out;
+}
+
+.table td:last-child {
+    white-space: nowrap;
+    text-align: center;
+    width: 1%;
+}
+
+.btn-action-text {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+}
+
+.btn-edit-text {
+    background-color: #0284c7;
+    color: #ffffff;
+    border: 1px solid #0369a1;
+}
+
+    .btn-edit-text:hover {
+        background-color: #0369a1;
+        color: #ffffff;
+        transform: translateY(-1px);
+    }
+
+.btn-details-text {
+    background-color: #0d9488;
+    color: #ffffff;
+    border: 1px solid #0f766e;
+}
+
+    .btn-details-text:hover {
+        background-color: #0f766e;
+        color: #ffffff;
+        transform: translateY(-1px);
+    }
+
+.btn-delete-text {
+    background-color: #dc2626;
+    color: #ffffff;
+    border: 1px solid #b91c1c;
+}
+
+    .btn-delete-text:hover {
+        background-color: #b91c1c;
+        color: #ffffff;
+        transform: translateY(-1px);
+    }
+
+/* ==========================================================================
+   ESTILOS DINÁMICOS - SECCIÓN ACERCA DE (ABOUT)
+   ========================================================================== */
+.about-hero {
+    background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%) !important;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(15, 32, 39, 0.2) !important;
+}
+
+.about-card {
+    transition: all 0.3s ease-in-out;
+    border: 1px solid rgba(0, 0, 0, 0.04) !important;
+}
+
+    .about-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08) !important;
+    }
+
+.values-section {
+    transition: transform 0.3s ease;
+}
