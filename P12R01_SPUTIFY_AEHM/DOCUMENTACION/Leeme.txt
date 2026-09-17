@@ -1,0 +1,14 @@
+Leeme completo y paso por paso:
+1) Crea la carpeta donde guardaras la musica
+Por ejemplo:
+"Musica" en C:\
+2) Agrega las canciones dentro de la carpeta, en formato .mp3
+3) Abrir el proyecto con Visual Studio
+4) "Establecer como proyecto de inicio" a Sputiffy
+5) Iniciar la ejecucion del proyecto IIS Express
+6) Agregar credenciales o darse de alta
+7) Clic en el boton "Offline" de la barra lateral izquierda para ir 
+a la pagina inicial del modo Offline
+8) Clic en el boton (+) "Agregar canciones"
+9) Seleccionamos las canciones que deseamos agregar al sistema
+10) Agregamos
