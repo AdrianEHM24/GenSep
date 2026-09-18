@@ -1,0 +1,7 @@
+C:\Users\adria\Documents\GenSep\Proyectos\P16R01_WCF_AEHM\ClienteWCF\obj\Debug\ClienteWCF.csproj.AssemblyReference.cache
+C:\Users\adria\Documents\GenSep\Proyectos\P16R01_WCF_AEHM\ClienteWCF\obj\Debug\ClienteWCF.csproj.CoreCompileInputs.cache
+C:\Users\adria\Documents\GenSep\Proyectos\P16R01_WCF_AEHM\ClienteWCF\bin\Debug\ClienteWCF.exe.config
+C:\Users\adria\Documents\GenSep\Proyectos\P16R01_WCF_AEHM\ClienteWCF\bin\Debug\ClienteWCF.exe
+C:\Users\adria\Documents\GenSep\Proyectos\P16R01_WCF_AEHM\ClienteWCF\bin\Debug\ClienteWCF.pdb
+C:\Users\adria\Documents\GenSep\Proyectos\P16R01_WCF_AEHM\ClienteWCF\obj\Debug\ClienteWCF.exe
+C:\Users\adria\Documents\GenSep\Proyectos\P16R01_WCF_AEHM\ClienteWCF\obj\Debug\ClienteWCF.pdb

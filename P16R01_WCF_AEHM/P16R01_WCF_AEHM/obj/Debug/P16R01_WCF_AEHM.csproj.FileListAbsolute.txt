@@ -1,0 +1,7 @@
+C:\Users\adria\Documents\GenSep\Proyectos\P16R01_WCF_AEHM\P16R01_WCF_AEHM\obj\Debug\P16R01_WCF_AEHM.csproj.AssemblyReference.cache
+C:\Users\adria\Documents\GenSep\Proyectos\P16R01_WCF_AEHM\P16R01_WCF_AEHM\obj\Debug\P16R01_WCF_AEHM.csproj.CoreCompileInputs.cache
+C:\Users\adria\Documents\GenSep\Proyectos\P16R01_WCF_AEHM\P16R01_WCF_AEHM\bin\P16R01_WCF_AEHM.dll.config
+C:\Users\adria\Documents\GenSep\Proyectos\P16R01_WCF_AEHM\P16R01_WCF_AEHM\bin\P16R01_WCF_AEHM.dll
+C:\Users\adria\Documents\GenSep\Proyectos\P16R01_WCF_AEHM\P16R01_WCF_AEHM\bin\P16R01_WCF_AEHM.pdb
+C:\Users\adria\Documents\GenSep\Proyectos\P16R01_WCF_AEHM\P16R01_WCF_AEHM\obj\Debug\P16R01_WCF_AEHM.dll
+C:\Users\adria\Documents\GenSep\Proyectos\P16R01_WCF_AEHM\P16R01_WCF_AEHM\obj\Debug\P16R01_WCF_AEHM.pdb

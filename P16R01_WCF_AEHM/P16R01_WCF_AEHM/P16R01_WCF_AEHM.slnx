@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="../ClienteWCF/ClienteWCF.csproj">
+    <BuildDependency Project="P16R01_WCF_AEHM.csproj" />
+  </Project>
+  <Project Path="P16R01_WCF_AEHM.csproj" />
+</Solution>

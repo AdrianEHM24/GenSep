@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "Nuevo perfil",
+    "Projects": [
+      {
+        "Path": "P16R01_WCF_AEHM.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "..\\ClienteWCF\\ClienteWCF.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]
