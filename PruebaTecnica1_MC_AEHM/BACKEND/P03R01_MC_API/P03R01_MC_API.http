@@ -1,0 +1,6 @@
+@P03R01_MC_API_HostAddress = http://localhost:5172
+
+GET {{P03R01_MC_API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
